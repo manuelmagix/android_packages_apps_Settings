@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 Resurrection Remix
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/rr_lockscreen_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    
+         <!-- Lockscreen -->
+    <PreferenceCategory
+        android:title="@string/lockscreen_shortcuts_categories">
+               
+         <PreferenceScreen
+                 android:key="lockscreen_shortcuts"
+                 android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+                 android:summary="@string/lockscreen_shortcuts_summary"
+                 android:title="@string/lockscreen_shortcuts_title">
+             <extra android:name="actionMode" android:value="4" />
+             <extra android:name="maxAllowedActions" android:value="6" />
+             <extra android:name="disableLongpress" android:value="true" />
+             <extra android:name="useAppPickerOnly" android:value="true" />
+             <extra android:name="fragment" android:value="com.android.settings.slim.LockscreenShortcut" />
+    </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="lockscreen_shortcuts_settings"
+            android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
+            android:summary="@string/rr_lockscreen_targets_message_summary"
+            android:title="@string/rr_lockscreen_targets_message" />
+
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_lockscreen_advanced">
+
+        <PreferenceScreen
+            android:key="lockscreen_colors"
+            android:title="@string/lockscreen_advanced"
+            android:fragment="com.android.settings.rr.LockscreenAdvanced" />
+
+</PreferenceCategory> 
+
+
+    <PreferenceCategory
+        android:title="@string/rr_lockscreen_weather">
+        <PreferenceScreen
+            android:key="lockscreen_weather"
+            android:title="@string/lock_screen_weather_settings_title"
+            android:summary="@string/lock_screen_weather_settings_title_summary"
+            android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
+
+</PreferenceCategory>   
+
+    <PreferenceCategory
+        android:title="@string/lockscreen_Gestures">
+
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="long_press_lock_icon_torch"
+            android:title="@string/longpress_lock_icon_torch_title"
+            android:summary="@string/longpress_lock_icon_torch_summary" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_anywhere"
+            android:title="@string/double_tap_sleep_anywhere_title"
+            android:summary="@string/double_tap_sleep_anywhere_summary"/> 
+</PreferenceCategory>  
+
+    <PreferenceCategory
+        android:title="@string/rr_lockscreen_vizualizer">
+                   
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+                android:key="lockscreen_visualizer"
+                android:title="@string/lockscreen_visualizer_title"
+                android:defaultValue="true"
+                settings:advanced="true"/>                                
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="lockscreen_media_metadata"
+            android:title="@string/media_art_title"
+            android:summary="@string/media_art_summary"
+            android:defaultValue="true" />
+
+</PreferenceCategory>
+      
+</PreferenceScreen>

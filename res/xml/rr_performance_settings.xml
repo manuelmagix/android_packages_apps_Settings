@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 Resurrection Remix
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/performance_settings_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+      <!-- Performance -->
+    <ListPreference
+            android:key="pref_perf_profile"
+            android:dialogTitle="@string/perf_profile_title"
+            android:title="@string/perf_profile_title"
+            android:persistent="false" />
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="app_perf_profiles_enabled"
+            android:title="@string/autoperf_title"
+            android:summary="@string/autoperf_summary"
+            android:defaultValue="true" />
+
+        <PreferenceScreen
+            android:key="ioscheduler"
+            android:fragment="com.android.settings.rr.IOScheduler"
+            android:title="@string/io_scheds_title" />
+
+
+
+    <PreferenceCategory
+        android:key="perf_graphics_prefs"
+        android:title="@string/graphics_title">
+
+        <SwitchPreference
+            android:key="pref_force_highend_gfx"
+            android:title="@string/pref_force_highend_gfx_title"
+            android:summary="@string/pref_force_highend_gfx_summary" />
+	<SwitchPreference
+                android:key="force_hw_ui"
+                android:title="@string/rr_force_graphics_ui"
+                android:summary="@string/rr_force_graphics_ui_summary"/>
+        <SwitchPreference
+                android:key="disable_overlays"
+                android:title="@string/rr_disable_hw"
+                android:summary="@string/rr_disable_hw_summary"/>
+	</PreferenceCategory>
+
+	<!-- Performance/Kernel Auditor --> 
+    <PreferenceCategory
+    android:key="kernel_aduitor"
+    android:title="@string/kernel_aduitor_title">
+ 
+     <PreferenceScreen
+		android:id="@+id/kernel_adiutor"
+              	android:key="kernel_tweaks"
+                android:title="@string/kernel_aduitor"
+		android:summary="@string/kernel_settings_warning">
+ 	<intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.grarak.kerneladiutor"
+                    android:targetClass="com.grarak.kerneladiutor.MainActivity" />
+	 
+	</PreferenceScreen>
+
+</PreferenceCategory>
+	 <PreferenceCategory 
+   	 android:key="rr_scrollingcache"
+    	 android:title="@string/pref_scrollingcache_title">
+        <ListPreference 
+            android:key="pref_scrollingcache"
+            android:dialogTitle="@string/pref_scrollingcache_title"
+            android:title="@string/pref_scrollingcache_title"
+            android:summary="@string/pref_scrollingcache_summary"
+            android:entries="@array/entries_scrollingcache"
+            android:entryValues="@array/values_scrollingcache" />
+</PreferenceCategory>
+
+<PreferenceCategory 
+   	 android:key="proc_limit"
+    	 android:title="@string/background_apps">
+
+        <ListPreference
+            android:key="app_process_limit"
+            android:title="@string/app_process_limit_title"
+            android:persistent="false"
+            android:entries="@array/app_process_limit_entries"
+            android:entryValues="@array/app_process_limit_values" />
+</PreferenceCategory>
+
+<PreferenceCategory 
+   	 android:key="rr_boot"
+    	 android:title="@string/rr_boot">
+    <SwitchPreference
+        android:key="enable_quickboot"
+        android:title="@string/enable_quickboot_title"
+        android:summary="@string/enable_quickboot_summary" />
+</PreferenceCategory>	
+
+
+</PreferenceScreen>
